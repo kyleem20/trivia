@@ -6,6 +6,8 @@ class AppState extends EventEmitter {
   question = []
 
   trivia = []
+  correct = []
+  incorrect = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

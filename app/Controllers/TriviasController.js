@@ -7,9 +7,17 @@ function _draw() {
   let template = ''
   question.forEach(q => template += q.Template)
   document.getElementById('app').innerHTML = template
+  _drawOptions()
 }
 
+function _drawOptions() {
+  let correct = ProxyState.correct
+  let incorrect = ProxyState.incorrect
+  document.getElementById('buttons').innerHTML = `
+    <button  class="btn btn-success"  > ${correct}</button>
+      <button class="btn btn-success" onclick="app.triviaController.getTrivia('${incorrect}')">${incorrect}</button>`
 
+}
 
 export class TriviasController {
 

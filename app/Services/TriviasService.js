@@ -12,7 +12,11 @@ class TriviasService {
     console.log('service: getting questions')
     const res = await api.get()
     console.log('api response', res.data)
+    ProxyState.correct = res.data.correct_answer
+    ProxyState.incorrect = res.data.incorrect_answers
+
     ProxyState.question = res.data.results.map(q => new Trivia(q))
+
   }
 
 }
